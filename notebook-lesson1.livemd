@@ -1,0 +1,187 @@
+# Alquimia 2.1
+
+## Interactive Elixir
+
+```elixir
+import IEx.Helpers
+```
+
+```elixir
+h(String.chunk())
+```
+
+```elixir
+i("string")
+```
+
+```elixir
+i(fn -> IO.puts "Using function")
+```
+
+## Basic Types
+
+```elixir
+number = 10
+second_number = number
+number = 5
+
+second_number
+```
+
+```elixir
+Integer.to_string(20)
+```
+
+```elixir
+Integer.parse("10.20")
+```
+
+```elixir
+10 / 2
+```
+
+## Float
+
+```elixir
+float_n = 10.0
+```
+
+```elixir
+Float.round(20.5)
+```
+
+```elixir
+Float.ceil(10.1)
+Float.floor(10.1)
+```
+
+## String
+
+```elixir
+my_str = "This is a string"
+```
+
+```elixir
+not_a_string = 'This is not a string'
+```
+
+```elixir
+is_binary(not_a_string)
+```
+
+```elixir
+String.valid?(my_str)
+```
+
+```elixir
+"Best Tv Show of all time is " <> "Breaking Bad"
+```
+
+```elixir
+string_to_interpolate = "Breaking Bad"
+"Best Tv Show of all time is #{string_to_interpolate}"
+```
+
+```elixir
+string_to_interpolate = 24
+"My age is #{string_to_interpolate}"
+```
+
+```elixir
+String.length("A Kingdom so far far away")
+```
+
+```elixir
+String.contains?("The kingdom of my Father", "Father")
+```
+
+```elixir
+String.upcase("long may live elixir!")
+```
+
+```elixir
+String.downcase("DO OR DO NOT, THERE IS NO TRY")
+```
+
+## Charlists
+
+```elixir
+list = 'This is a charlist'
+```
+
+```elixir
+'a' == [97]
+```
+
+```elixir
+String.Chars.to_string(list)
+```
+
+## Bitstrings
+
+```elixir
+<<97>> == "a"
+```
+
+## Binaries
+
+```elixir
+is_binary(<<97::8>>)
+```
+
+```elixir
+is_bitstring(<<5::4>>)
+```
+
+```elixir
+is_binary("every string is a binary")
+```
+
+## Atoms
+
+```elixir
+atom = :atom
+```
+
+```elixir
+is_atom(atom)
+```
+
+```elixir
+defmodule MyAtomModule do
+end
+
+is_atom(MyAtomModule)
+```
+
+```elixir
+String.to_atom("is_an_atom")
+```
+
+```elixir
+String.to_existing_atom("not_an_atom")
+```
+
+## Booleans
+
+```elixir
+true == true
+```
+
+```elixir
+if nil, do: :ok, else: :not_ok
+```
+
+```elixir
+true == true
+```
+
+```elixir
+false == false
+```
+
+## Lists
+
+```elixir
+
+```
