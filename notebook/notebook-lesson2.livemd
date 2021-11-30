@@ -1,0 +1,242 @@
+# Alquimia 2.2
+
+## Lists
+
+```elixir
+good_the_office_seasons = [1, 2, 3, 4, 5, 6, 7]
+```
+
+```elixir
+all_the_office_seasons = good_the_office_seasons ++ [8, 9]
+```
+
+```elixir
+bad_the_office_seasons = all_the_office_seasons -- good_the_office_seasons
+```
+
+```elixir
+good_the_office_seasons -- all_the_office_seasons
+```
+
+```elixir
+first_season = hd(all_the_office_seasons)
+```
+
+```elixir
+remaining_seasons = tl(all_the_office_seasons)
+```
+
+```elixir
+[first | remaining] = all_the_office_seasons
+remaining
+```
+
+```elixir
+["a" | ["b", "c", "d"]] == ["a", "b", "c", "d"]
+```
+
+```elixir
+["a" | ["b" | ["c" | ["d" | []]]]]
+```
+
+```elixir
+# List.flatten([1, ["b"], [:ok], [""]]) |> IO.inspect
+
+# List.last(["first", "second", "last"]) |> IO.inspect
+
+# List.first(["first", "second", "last"]) |> IO.inspect
+
+# List.delete(["a", "b", "c", "a"], "a") |> IO.inspect
+
+List.to_tuple([:error, :not_found]) |> IO.inspect()
+```
+
+## Tuples
+
+```elixir
+name_inside = fn name ->
+  if name in ["Rick", "Ana", "khaleesi"], do: {:ok, name}, else: {:error, :not_found}
+end
+
+name_inside.("khaleesi1")
+```
+
+```elixir
+Tuple.to_list({1, 2, 3})
+```
+
+```elixir
+Tuple.append({"Luke", "Leia", "Han"}, "Yoda")
+```
+
+## Keyword Lists
+
+```elixir
+kl = [name: "John", lastname: "McLane"]
+
+[name: "John", lastname: "McLane"] == []
+
+[name: "John", lastname: "McLane", lastname: "McAvoy"]
+
+[{:name, "John"}, {:lastname, "McLane"}] == [name: "John", lastname: "McLane"]
+
+[name: "John", lastname: "McLane"] == [lastname: "McLane", name: "John"]
+```
+
+## Maps
+
+```elixir
+IO.inspect(%{:a => 5} == %{a: 5})
+
+%{1 => 5}
+
+%{"name" => "Rick", "name" => "Rickson"}
+```
+
+```elixir
+my_map = Map.new(a: 5, b: 10)
+
+my_map = Map.put(my_map, :c, 15)
+
+value = Map.get(my_map, :a)
+value == my_map[:a]
+value == my_map.a
+
+Map.has_key?(my_map, :d)
+
+Map.drop(my_map, [:a, :c])
+
+Map.update(my_map, :a, 1, fn value -> value * 2 end)
+
+Map.take(my_map, [:a, :b])
+
+%{my_map | a: 25}
+```
+
+## Operadores
+
+```elixir
+10 + 20
+```
+
+```elixir
+350 - 15
+```
+
+```elixir
+350.0 - 12
+```
+
+```elixir
+50 + 100.0
+```
+
+```elixir
+50 * 2
+```
+
+```elixir
+50 / 2
+```
+
+```elixir
+div(50, 10)
+```
+
+```elixir
+rem(10, 3)
+```
+
+## Operadores booleans
+
+```elixir
+true and false
+```
+
+```elixir
+true and true
+```
+
+```elixir
+false or false
+```
+
+```elixir
+true or false
+```
+
+```elixir
+not true
+```
+
+```elixir
+not_a_string = not String.valid?("string")
+```
+
+```elixir
+false && ""
+```
+
+```elixir
+"" && 15
+```
+
+```elixir
+nil || 100
+```
+
+```elixir
+false || 'charlist'
+```
+
+```elixir
+false || nil
+```
+
+```elixir
+!1
+```
+
+```elixir
+!nil
+```
+
+## Operadores de comparação
+
+```elixir
+10 != 10
+```
+
+```elixir
+10 == 10
+```
+
+```elixir
+10.0 == 10
+```
+
+```elixir
+10.0 === 10
+```
+
+```elixir
+11 >= 10
+```
+
+```elixir
+10 <= 11
+```
+
+```elixir
+20 > 30
+```
+
+```elixir
+11 < 12
+```
+
+```elixir
+# Everyhting in Elixir is comparable
+# number < atom < reference < function < port < pid < tuple < map < list < bitstring
+<<0>> > []
+```
