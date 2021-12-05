@@ -1,0 +1,130 @@
+# Alquimia 2.3
+
+## Pattern Matching
+
+```elixir
+my_int = 10
+
+my_int = 15
+
+# pin operator
+^my_int = 10
+```
+
+```elixir
+[] = ["element"]
+```
+
+```elixir
+%{} = %{"alquimia" => "learning"}
+```
+
+```elixir
+%{"alquimia" => "e-learning"} = %{"alquimia" => "learning"}
+```
+
+```elixir
+[alquimia: "learning", elixir: "basic"] = [elixir: "basic", alquimia: "learning"]
+```
+
+```elixir
+{:ok, _} = {:ok, %{}}
+{:ok, %{"a" => [_ | t]}} = {:ok, %{"a" => [1, 2, 3, 4]}}
+```
+
+## Functions and Modules
+
+```elixir
+defmodule Math do
+  @moduledoc """
+  Documentation explaining the logic contained in this module.
+  """
+
+  @doc """
+  Sums two numbers.
+  """
+  @spec sum(a :: Integer.t(), b :: Integer.t()) :: Integer.t()
+  def sum(a, b), do: a + b
+
+  @doc """
+  Subtracts seconf number from the first.
+  """
+  @spec sub(Integer.t(), Integer.t()) :: Integer.t()
+  def sub(a, b), do: do_sub(a, b)
+
+  @doc false
+  def do_sub(a, b) when is_integer(a) and is_integer(b), do: a - b
+
+  # Math.mult/2
+  def mult(a, b \\ 1), do: a * b
+
+  def int_div(a, b), do: div(a, b)
+end
+```
+
+```elixir
+Math.sum(0, 50)
+
+Math.do_sub(5, 5)
+```
+
+```elixir
+Math.mult(400, 5)
+```
+
+```elixir
+Math.mult(400)
+```
+
+```elixir
+Math.int_div(10, 2)
+```
+
+```elixir
+output_func = fn string -> IO.puts("#{string}") end
+```
+
+```elixir
+output_func.("my_string")
+```
+
+```elixir
+output_func = &IO.puts(&1)
+```
+
+```elixir
+output_func.("my other string")
+```
+
+## Pipe Operator
+
+```elixir
+Integer.to_string(String.to_integer("15"))
+```
+
+```elixir
+"15"
+|> String.to_integer()
+|> Integer.to_string()
+```
+
+```elixir
+require Integer
+
+10
+|> Integer.is_odd()
+|> if(do: "Integer is odd", else: "Integer is even")
+```
+
+## Recursion and tail-call optimization
+
+```elixir
+defmodule MyRecursionModule do
+  def non_optimized_factorial(0), do: 1
+  def non_optimized_factorial(n), do: n * non_optimized_factorial(n - 1)
+
+  def optimized_factorial(n, acc \\ 1)
+  def optimized_factorial(0, acc), do: 1 * acc
+  def optimized_factorial(n, acc), do: optimized_factorial(n - 1, acc * n)
+end
+```
